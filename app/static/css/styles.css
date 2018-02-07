@@ -1,0 +1,25 @@
+:root{
+  --main-bg-color:coral;
+}
+
+body{
+  background: var(--main-bg-color);
+}
+
+
+/*
+
+  Start Scherm
+
+*/
+section{
+  display:none;
+}
+#start-scherm, #best-practice {
+  width: 100vw;
+  height: 100vh;
+}
+
+.active{
+  display:block;
+}
