@@ -55,10 +55,38 @@ table {
      GLOBAL
 */
 
-body, html {
+body, html, section  {
     height: 100%;
 }
 
 body, nav, section {
     width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    padding: 0 40px;
+}
+
+nav li a {
+    line-height: 44px;
+    color: #000;
+    margin-right: 20px;
+}
+
+section:first-of-type {
+    background-color: aqua;
+}
+
+section:last-of-type {
+    background-color: blue;
+}
+
+
+section.hidden {
+    display: none;
 }
