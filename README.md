@@ -18,6 +18,10 @@ The course repo for 'Web App From Scratch'
  - Debuggen kan lastiger zijn.
  
 
+Bronnen:
+1. https://www.noupe.com/development/javascript-frameworks-94897.html
+2. https://www.quora.com/What-are-the-pros-and-cons-of-JavaScript-frameworks
+
 ## Advantages and disadvantages of client-side single page web apps
  ### Advantages
  - Sneller.
@@ -29,6 +33,11 @@ The course repo for 'Web App From Scratch'
  - Alleen werkend met JavaScript.
  - Minder veilig dan normale applicaties. XSS zorgt ervoor dat het makkelijker kan worden aangevallen. 
 
+ 
+Bronnen:
+1. https://medium.com/@NeotericEU/single-page-application-vs-multiple-page-application-2591588efe58
+2. https://gathering.tweakers.net/forum/list_messages/1613325
+3. https://stackoverflow.com/questions/21862054/single-page-application-advantages-and-disadvantages
 
 ## Best practices
 ...
