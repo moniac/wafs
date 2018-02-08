@@ -6,7 +6,6 @@
 (function() {
   'use strict'
 
-
   const app = {
     init: function() {
       routes.init()
@@ -15,8 +14,9 @@
 
   const routes = {
     init: function() {
-      var route = window.location.hash;
-      route != '' ? sections.toggle(route) :  window.location.hash = '#start-scherm'
+      // let ipv var
+      let route = window.location.hash;
+      route != '' ? sections.toggle(route) : window.location.hash = '#start-scherm'
 
       window.addEventListener('hashchange', (event) => {
         route =  window.location.hash;
@@ -33,7 +33,6 @@
       sections.forEach(function(el){
         '#' + el.id === route ? el.classList.add('active') : el.classList.remove('active')
       })
-      console.log(route)
     }
   }
 
