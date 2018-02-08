@@ -6,14 +6,15 @@
 
     const app = {
         init() {
-           sections.toggle()
+            sections.toggle()
             routes.init()
         }
     }
 
     const routes = {
         init() {
-            window.addEventListener("hashchange", function () {
+            window.addEventListener("hashchange", function (event) {
+                console.log(event)
                 sections.toggle()
             });
         }
