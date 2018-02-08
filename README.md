@@ -41,4 +41,4 @@ Bronnen:
 
 ## Code reviews
 1. Sam https://github.com/Senmetsu/wafs/pull/1
-2. Cas https://github.com/Casburggraaf/wafs/pull/1
+2. Cas https://github.com/Casburggraaf/wafs/pull/2
