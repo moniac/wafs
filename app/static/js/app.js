@@ -37,6 +37,7 @@
 				} else {
 					el.classList.add('hidden')
 				}
+				// if statement kun je ook zo doen: '#' + el.id === route ? el.classList.remove('hidden') : el.classList.add('hidden')
 			})
 		}
 	}
