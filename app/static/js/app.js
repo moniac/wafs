@@ -12,31 +12,23 @@
 	}
 	const router = {
 		init() {
-			window.addEventListener('hashchange', () => {
+			onhashchange = () => {
 				sections.toggle(helpers.splitHash(location.hash))
-			})
+			}
 		},
 		checkHash() {
-			if (window.location.hash) {
-				sections.toggle(helpers.splitHash(location.hash))
-			} else {
-				document.querySelector('#home').classList.remove('hidden')
-			}
+			location.hash ? sections.toggle(helpers.splitHash(location.hash)) : document.querySelector('#home').classList.remove('hidden')
 		}
 	}
 	const sections = {
 		init() {
-			settings.sections.forEach(function(el) {
+			settings.sections.forEach((el) => {
 				el.classList.add('hidden')
 			})
 		},
 		toggle(route) {
-			settings.sections.forEach(function(el) {
-				if (el.id === route) {
-					el.classList.remove('hidden')
-				} else {
-					el.classList.add('hidden')
-				}
+			settings.sections.forEach((el) => {
+				el.id === route ? el.classList.remove('hidden') : el.classList.add('hidden')
 			})
 		}
 	}
