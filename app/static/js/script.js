@@ -5,22 +5,20 @@
 'use strict';
 
 //console.log('global scope');
-(function(){
+{
   //Initialize application
-  var app = {
+  let app = {
     //hieronder is een method
     init: function(){
-      //console.log('app initialized');
-      //console.log(location.hash);
       routes.init(); // hier in moet de hashchange
     }
   }
 
   // Handle routes and states
-  var routes = {
+  let routes = {
     init: function(){
       // whats in the hash? / wat zit er in de link/# ?
-      var route = location.hash
+      let route = location.hash
       sections.toggle(route)
 
       route != '' ? sections.toggle(route) : window.location.hash = '#start'
@@ -33,10 +31,10 @@
 
 
   // Render toggle sections
-  var sections = {
+  let sections = {
     toggle: function(route){
 
-      var elements = document.querySelectorAll('section');
+      let elements = document.querySelectorAll('section');
 
       // loop-ed door alle sections heen & adds class .hidden
       elements.forEach(function(el){
@@ -48,4 +46,4 @@
   // Start the application
   //app.init app = object, init = method
   app.init()
-})()
+}
