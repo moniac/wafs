@@ -15,17 +15,12 @@
             request.open('GET', 'http://behance.net/v2/users/rooaahsab16?api_key=rWYfki0K9PioDYZZcrvKGa64xBzcAeaX', true);
             request.onload = function () {
                 if (request.status >= 200 && request.status < 400) {
-                    // Success!
+                    // Succeses!
                     let data = JSON.parse(request.responseText)
-                    console.log(data)
-                    let fields = data.user.fields
-                    let text = ''
-                    text += "<ul>"
-                    for (let i in fields) {
-                        text += "<li>" + fields[i] + "</li>";
-                    }
-                    text += "</ul>"
-                    document.getElementById("work").innerHTML = text;
+                    let stats = data.user.stats
+                    console.log(stats)
+
+                    Transparency.render(document.getElementById('works'), stats);
 
                 } else {
                     // We reached our target server, but it returned an error
