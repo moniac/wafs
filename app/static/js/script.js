@@ -8,6 +8,7 @@
         }
     }
 
+    // API to request data from behanced
     const API = {
         getData() {
             let request = new XMLHttpRequest();
@@ -16,6 +17,16 @@
                 if (request.status >= 200 && request.status < 400) {
                     // Success!
                     let data = JSON.parse(request.responseText)
+                    console.log(data)
+                    let fields = data.user.fields
+                    let text = ''
+                    text += "<ul>"
+                    for (let i in fields) {
+                        text += "<li>" + fields[i] + "</li>";
+                    }
+                    text += "</ul>"
+                    document.getElementById("work").innerHTML = text;
+
                 } else {
                     // We reached our target server, but it returned an error
                 }
@@ -29,6 +40,7 @@
         }
     }
 
+    // Checks the hash location of the website
     const routes = {
         init() {
             routie({
@@ -45,6 +57,7 @@
         }
     }
 
+    // Shows the section that matches with the route
     const sections = {
         selector: document.querySelectorAll('section'),
         toggle(hash) {

@@ -78,14 +78,13 @@ nav li a {
     margin-right: 20px;
 }
 
-section:first-of-type {
+section:nth-of-type(odd){
     background-color: aqua;
 }
 
-section:last-of-type {
-    background-color: blue;
+section:nth-of-type(even) {
+    background-color: pink;
 }
-
 
 section.hidden {
     display: none;
