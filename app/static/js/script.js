@@ -2,40 +2,73 @@
     'use strict';
     const app = {
         init() {
-            API.getData()
             sections.toggle('home')
             routes.init()
         }
     }
 
-    // API to request data from behanced
+    // API to request data from meme generator
     const API = {
-        getData() {
+        getData(name) {
             let request = new XMLHttpRequest();
-            request.open('GET', 'http://behance.net/v2/users/rooaahsab16?api_key=rWYfki0K9PioDYZZcrvKGa64xBzcAeaX', true);
-            request.onload = function () {
+            request.open('GET', 'http://version1.api.memegenerator.net//Generators_Select_ByPopular?pageIndex=0&pageSize=12&days=&apiKey=893dfe6c-e0e7-4693-8a9e-5df5de998357', true);
+            request.onload = () => {
                 if (request.status >= 200 && request.status < 400) {
                     // Succeses!
                     let data = JSON.parse(request.responseText)
-                    let stats = data.user.stats
-                    console.log(stats)
 
-                    Transparency.render(document.getElementById('works'), stats);
+                    let memeData = data.result.map((obj) => {
+                        return {
+                            displayName: obj.displayName,
+                            imageUrl: obj.imageUrl,
+                            href: obj.displayName.toLowerCase().replace(/ $/, "").split(' ').join('-')
+                        }
+                    })
+
+                    /* if you are on a meme page, the name of the meme is passed as a parameter.
+                    The if statement checks if you are on a meme page or on the overview page
+                    */
+
+                    if (name) {
+                        let selectedMeme = memeData.filter((obj) => {
+                            return obj.href === name;
+                        })
+                        let directives = {
+                            image: {
+                                src(params) {
+                                    return this.imageUrl
+                                }
+                            }
+                        }
+                        Transparency.render(document.getElementById('details'), selectedMeme, directives);
+
+                    }
+                    else {
+                        let directives = {
+                            displayName: {
+                                // Some names have an space at the end. The replace removes that space so the won't be an extra - at the end of the string when the spaces are replaced with -
+                                href(params) {
+                                    return "#populair/" + this.displayName.toLowerCase().replace(/ $/, "").split(' ').join('-');
+                                }
+                            }
+                        }
+
+                        Transparency.render(document.getElementById('memes'), memeData, directives);
+                    }
+
 
                 } else {
-                    // We reached our target server, but it returned an error
+// We reached our target server, but it returned an error
                 }
             }
-
             request.onerror = function () {
-                // There was a connection error of some sort
+// There was a connection error of some sort
             }
-
             request.send();
         }
     }
 
-    // Checks the hash location of the website
+// Checks the hash location of the website
     const routes = {
         init() {
             routie({
@@ -45,16 +78,21 @@
                 'about-me': function () {
                     sections.toggle('about-me')
                 },
-                'work': function () {
-                    sections.toggle('work')
+                'populair': function () {
+                    API.getData()
+                    sections.toggle('populair')
+                },
+                'populair/:name': function (name) {
+                    API.getData(name)
+                    sections.toggle('details')
                 }
             })
         }
     }
 
-    // Shows the section that matches with the route
     const sections = {
         selector: document.querySelectorAll('section'),
+// Shows the section that matches with the route
         toggle(hash) {
             this.selector.forEach(function (el) {
                 el.classList.add('hidden')
