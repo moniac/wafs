@@ -1,8 +1,5 @@
 (function() {
 	'use strict'
-	const settings = {
-		sections: document.querySelectorAll('section')
-	}
 	const app = {
 		init() {
 			sections.init()
@@ -33,7 +30,7 @@
 								}
 							}
 
-							let dataPokemon = data.results.map(function(i) {
+							let dataPokemon = data.results.map((i) => {
 								return {
 									name: i.name,
 									url: i.url
@@ -83,13 +80,14 @@
 		}
 	}
 	const sections = {
-		init() {
-			settings.sections.forEach((el) => {
+        sectionsAll: document.querySelectorAll('section'),
+        init() {
+			this.sectionsAll.forEach((el) => {
 				el.classList.add('hidden')
 			})
 		},
 		toggle(route) {
-			settings.sections.forEach((el) => {
+			this.sectionsAll.forEach((el) => {
 				if (el.id === route) {
 					el.classList.remove('hidden')
 				} else {
