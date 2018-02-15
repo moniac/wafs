@@ -68,7 +68,7 @@
 
 						sections.toggle(name)
 
-						document.querySelector('#pokemon-detail').classList.remove('hidden')
+						document.querySelector('#pokemon-detail').setAttribute('aria-hidden', false)
 						Transparency.render(document.querySelector('#pokemon-detail'), pokeDetails, directives)
 					})
 				}
@@ -78,22 +78,22 @@
 			if (window.location.hash) {
 				sections.toggle(helpers.splitHash(location.hash))
 			} else {
-				document.querySelector('#home').classList.remove('hidden')
+				document.querySelector('#home').setAttribute('aria-hidden', false)
 			}
 		}
 	}
 	const sections = {
 		init() {
 			settings.sections.forEach((el) => {
-				el.classList.add('hidden')
+				el.setAttribute('aria-hidden', true)
 			})
 		},
 		toggle(route) {
 			settings.sections.forEach((el) => {
 				if (el.id === route) {
-					el.classList.remove('hidden')
+					el.setAttribute('aria-hidden', false)
 				} else {
-					el.classList.add('hidden')
+					el.setAttribute('aria-hidden', true)
 				}
 			})
 		}
