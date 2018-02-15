@@ -3,6 +3,7 @@
     const app = {
         init() {
             sections.toggle('home')
+            API.getData()
             routes.init()
         }
     }
@@ -79,7 +80,6 @@
                     sections.toggle('about-me')
                 },
                 'populair': function () {
-                    API.getData()
                     sections.toggle('populair')
                 },
                 'populair/:name': function (name) {
