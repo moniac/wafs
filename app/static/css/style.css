@@ -104,7 +104,7 @@ body {
 	width: 20rem;
 }
 
-.hidden {
+[aria-hidden="true"] {
 	display: none;
 	visibility: hidden;
 }
