@@ -3,22 +3,22 @@
     const app = {
         init() {
             sections.toggle('home')
-            API.getData()
+            api.getData()
             routes.init()
         }
     }
 
     // API to request data from meme generator
-    const API = {
+    const api = {
         getData(name) {
-            let request = new XMLHttpRequest();
+            const request = new XMLHttpRequest();
             request.open('GET', 'http://version1.api.memegenerator.net//Generators_Select_ByPopular?pageIndex=0&pageSize=12&days=&apiKey=893dfe6c-e0e7-4693-8a9e-5df5de998357', true);
             request.onload = () => {
                 if (request.status >= 200 && request.status < 400) {
                     // Succeses!
-                    let data = JSON.parse(request.responseText)
+                    const data = JSON.parse(request.responseText)
 
-                    let memeData = data.result.map((obj) => {
+                    const memeData = data.result.map((obj) => {
                         return {
                             displayName: obj.displayName,
                             imageUrl: obj.imageUrl,
@@ -31,10 +31,10 @@
                     */
 
                     if (name) {
-                        let selectedMeme = memeData.filter((obj) => {
+                        const selectedMeme = memeData.filter((obj) => {
                             return obj.href === name;
                         })
-                        let directives = {
+                        const directives = {
                             image: {
                                 src(params) {
                                     return this.imageUrl
@@ -45,7 +45,7 @@
 
                     }
                     else {
-                        let directives = {
+                        const directives = {
                             displayName: {
                                 // Some names have an space at the end. The replace removes that space so the won't be an extra - at the end of the string when the spaces are replaced with -
                                 href(params) {
@@ -83,7 +83,7 @@
                     sections.toggle('populair')
                 },
                 'populair/:name': function (name) {
-                    API.getData(name)
+                    api.getData(name)
                     sections.toggle('details')
                 }
             })
@@ -92,7 +92,7 @@
 
     const sections = {
         selector: document.querySelectorAll('section'),
-// Shows the section that matches with the route
+        // Shows the section that matches with the route
         toggle(hash) {
             this.selector.forEach(function (el) {
                 el.classList.add('hidden')
