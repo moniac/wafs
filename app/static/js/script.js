@@ -15,7 +15,7 @@
             request.open('GET', 'http://version1.api.memegenerator.net//Generators_Select_ByPopular?pageIndex=0&pageSize=12&days=&apiKey=893dfe6c-e0e7-4693-8a9e-5df5de998357', true);
             request.onload = () => {
                 if (request.status >= 200 && request.status < 400) {
-                    // Succeses!
+                    // Success!
                     const data = JSON.parse(request.responseText)
 
                     const memeData = data.result.map((obj) => {
