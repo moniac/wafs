@@ -39,6 +39,9 @@ Bronnen:
 2. https://gathering.tweakers.net/forum/list_messages/1613325
 3. https://stackoverflow.com/questions/21862054/single-page-application-advantages-and-disadvantages
 
-## Code reviews
+## Code reviews week 1
 1. Sam https://github.com/Senmetsu/wafs/pull/1
 2. Cas https://github.com/Casburggraaf/wafs/pull/2
+
+## Code reviews week 2
+1. Mo https://github.com/moniac/wafs/pull/6
