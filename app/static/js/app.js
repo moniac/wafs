@@ -46,7 +46,7 @@
 								const filteredPokemon = dataPokemon.filter((x, i) => {
 									return x.name.startsWith(e.target.value)
 								})
-								console.log(filteredPokemon)
+
 								Transparency.render(document.querySelector('#pokemon-list'), filteredPokemon, directives)
 							})
 
@@ -78,7 +78,7 @@
 						}
 
 						sections.toggle(name)
-
+						// dit kan netter: DRY
 						document.querySelector('#pokemon-detail').classList.remove('hidden')
 						document.querySelector('#pokemon > input').value = ''
 						Transparency.render(document.querySelector('#pokemon-detail'), pokeDetails, directives)
@@ -115,6 +115,8 @@
 		splitHash(hash) {
 			return hash.split('#')[1]
 		},
+
+		// haal deze weg want je gebruikt m niet!
 		splitSlash(slash) {
 			return slash.split('/')[1]
 		}
