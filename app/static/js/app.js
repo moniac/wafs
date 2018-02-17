@@ -36,7 +36,8 @@
 							let dataPokemon = data.results.map(function(i) {
 								return {
 									name: i.name,
-									url: i.url
+									url: i.url,
+									count: (0+i)
 								}
 							}).sort((a, b) => a.name.localeCompare(b.name))
 
@@ -48,9 +49,11 @@
 								})
 
 								Transparency.render(document.querySelector('#pokemon-list'), filteredPokemon, directives)
+								document.querySelector('#pokemon > p').innerHTML = filteredPokemon.length
 							})
 
 							Transparency.render(document.querySelector('#pokemon-list'), dataPokemon, directives)
+							document.querySelector('#pokemon > p').innerHTML = dataPokemon.length
 						})
 						.catch(reason => console.log(reason.message))
 				},
@@ -85,6 +88,9 @@
 					})
 				}
 			})
+		},
+		paths(){
+
 		},
 		checkHash() {
 			if (window.location.hash) {
