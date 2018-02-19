@@ -1,23 +1,29 @@
 {
-  "name": "wafs",
+  "name": "boilerplate",
   "version": "1.0.0",
-  "description": "wafs app",
-  "main": "./static/js/app.js",
-  "repository": "https://github.com/moniac/wafs/",
-  "author": "mo",
+  "description": "",
+  "main": "index.js",
+  "author": "Mohammed Mulazada",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "serve": "live-server public/",
+    "build": "webpack",
+    "dev-server": "webpack-dev-server"
   },
   "dependencies": {
-    "autoprefixer": "^8.0.0",
     "babel-cli": "^6.26.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "latest": "^0.2.0",
+    "css-loader": "^0.28.7",
     "node-sass": "^4.7.2",
-    "parcel": "^0.0.1",
-    "parcel-bundler": "^1.5.1"
+    "normalize.css": "^7.0.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "validator": "^9.2.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
   }
 }
