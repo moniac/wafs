@@ -1,0 +1,23 @@
+{
+  "name": "wafs",
+  "version": "1.0.0",
+  "description": "wafs app",
+  "main": "./static/js/app.js",
+  "repository": "https://github.com/moniac/wafs/",
+  "author": "mo",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "autoprefixer": "^8.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "latest": "^0.2.0",
+    "node-sass": "^4.7.2",
+    "parcel": "^0.0.1",
+    "parcel-bundler": "^1.5.1"
+  }
+}
