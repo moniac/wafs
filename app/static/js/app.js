@@ -89,9 +89,6 @@
 				}
 			})
 		},
-		paths(){
-
-		},
 		checkHash() {
 			if (window.location.hash) {
 				sections.toggle(helpers.splitHash(location.hash))
@@ -121,11 +118,6 @@
 		splitHash(hash) {
 			return hash.split('#')[1]
 		},
-
-		// haal deze weg want je gebruikt m niet!
-		splitSlash(slash) {
-			return slash.split('/')[1]
-		}
 	}
 	app.init()
 })()
