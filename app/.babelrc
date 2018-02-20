@@ -1,8 +1,16 @@
 {
 	"presets": [
-		"env"
+		[
+			"env", {
+				"targets": {
+					"browsers": [
+						"last 2 versions",
+						"IE >= 9"
+					]
+				}
+			}
+		]
 	],
-	"plugins": [
-		"transform-class-properties"
-	]
+	"plugins": ["transform-async-to-generator",
+				"transform-runtime"]
 }
