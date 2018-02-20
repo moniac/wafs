@@ -2,6 +2,7 @@ import routie from './routie'
 import transparency from './transparency'
 import sections from './sections'
 import helpers from './helpers'
+import api from './api'
 
 const router = {
 	init() {
@@ -12,10 +13,7 @@ const router = {
 			'pokemon': function() {
 				sections.toggle("pokemon")
 
-				const fetchPokeList = async () =>
-					await (await fetch('https://pokeapi.co/api/v2/pokemon/?limit=151')).json()
-
-				fetchPokeList()
+				api.call('https://pokeapi.co/api/v2/pokemon/?limit=151')
 					.then((data) => {
 
 						const directives = {
@@ -51,10 +49,15 @@ const router = {
 					.catch(reason => console.log(reason.message))
 			},
 			'pokemon/?:name': function(name) {
-				const fetchPokeList = async () =>
-					await (await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)).json()
 
-				fetchPokeList().then((data) => {
+				api.call(`https://pokeapi.co/api/v2/pokemon/${name}`).then((data) => {
+					// extract the pokemon data
+					const pokeDetails = {
+						name: data.name,
+						id: data.id,
+						sprite: data.sprites.front_default
+					}
+					// additional data for the html element
 					const directives = {
 						sprite: {
 							src() {
@@ -65,12 +68,6 @@ const router = {
 								return `A sprite image of the pokemon ${this.name}`
 							}
 						}
-					}
-
-					const pokeDetails = {
-						name: data.name,
-						id: data.id,
-						sprite: data.sprites.front_default
 					}
 
 					sections.toggle(name)
