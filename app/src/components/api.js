@@ -1,6 +1,17 @@
 const api = {
 	call: async function (api) {
-		return await (await fetch(api)).json()
+		try {
+			const response = await fetch(api)
+			const data = await response.json()
+
+			if (data) {
+				return data
+			}
+			throw new Error()
+
+		} catch (error) {
+			console.log(`Unable to get data back from ${api}`)
+		}
 	}
 }
 

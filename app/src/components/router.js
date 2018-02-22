@@ -72,7 +72,6 @@ const router = {
 					}
 
 					sections.toggle(name)
-					// dit kan netter: DRY
 					document.querySelector('#pokemon-detail').classList.remove('hidden')
 					document.querySelector('#pokemon > input').value = ''
 					Transparency.render(document.querySelector('#pokemon-detail'), pokeDetails, directives)
