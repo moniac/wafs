@@ -12,10 +12,10 @@ const router = {
 			},
 			'pokemon': function() {
 				sections.toggle("pokemon")
-
+				helpers.toggleLoader()
 				api.call('https://pokeapi.co/api/v2/pokemon/?limit=151')
 					.then((data) => {
-
+						helpers.toggleLoader()
 						const directives = {
 							name: {
 								href() {
@@ -49,8 +49,9 @@ const router = {
 					.catch(reason => console.log(reason.message))
 			},
 			'pokemon/?:name': function(name) {
-
+				helpers.toggleLoader()
 				api.call(`https://pokeapi.co/api/v2/pokemon/${name}`).then((data) => {
+					helpers.toggleLoader()
 					// extract the pokemon data
 					const pokeDetails = {
 						name: data.name,
