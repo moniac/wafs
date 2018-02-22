@@ -1,3 +1,20 @@
+# Product
+
+## The Pokémon api
+
+This API is meant to show data about the first generation Pokémon.
+Users can see a list of all 151 first generation Pokémon, there they can click on that Pokémon and see a bit more information on that specific Pokémon.
+
+## How to use
+
+First you visit the website and click on Pokélist in the navigation bar. From there you can select or filter on a Pokémon. The list is sorted in alphabetical order.
+
+From there, you can select a Pokémon and view some more details on it.
+
+## Visual Flow
+
+![Site screenshot](https://github.com/moniac/wafs/blob/master/visualflow.png "Visual Flow")
+
 # wafs
 
 # Vanilla JS vs Libraries & Frameworks
@@ -63,4 +80,11 @@ Single page web apps don't need a server to serve the pages. All the navigation 
 * You are forced to have Javascript enabled, the page won't work otherwise
 
 ## Best practices
-...
+
+* Always use const, use let where needed, never use var
+* Use arrow functions wherever possible
+* Declare variables at the top of the scope
+* Keep comments short and sweet
+* Keep your code DRY, use a function twice? DRY it up
+* If you can't explain it simply enough, it's probably too confusing
+* Share and help others
