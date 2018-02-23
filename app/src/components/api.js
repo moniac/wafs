@@ -10,7 +10,7 @@ const api = {
 			throw new Error()
 
 		} catch (error) {
-			console.log(`Unable to get data back from ${api}`)
+			throw new Error(`Unable to get data back from ${api}`)
 		}
 	}
 }
