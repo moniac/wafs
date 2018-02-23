@@ -15,6 +15,10 @@ From there, you can select a Pokémon and view some more details on it.
 
 ![Site screenshot](https://github.com/moniac/wafs/blob/master/visualflow.png "Visual Flow")
 
+## Interaction chart
+
+![Site screenshot](https://github.com/moniac/wafs/blob/master/interaction_flow.png "Interaction Chart")
+
 # wafs
 
 # Vanilla JS vs Libraries & Frameworks
